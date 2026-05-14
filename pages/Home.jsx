@@ -12,10 +12,10 @@ export default function Home () {
     return (
         <main>
             <PaletteBar selectedColor = {selectedColor} setSelectedColor = {setSelectedColor}/>
-            <div className="middle-container">
+            <div className="canvas-container">
                 <Canvas selectedColor = {selectedColor}/>
-                <ToolBar />
             </div>
+            <ToolBar />
         </main>
     );
 }

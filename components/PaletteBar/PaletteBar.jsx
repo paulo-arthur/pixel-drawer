@@ -9,7 +9,7 @@ export default function PaletteBar({selectedColor, setSelectedColor}) {
             {COLORS.map((color_hue) => (
                 <div>
                     {color_hue.map((color) => (
-                        <ColorBtn key={color} style={ {backgroundColor: color} } selectedColor = {selectedColor} setSelectedColor = {setSelectedColor} />
+                        <ColorBtn key={ color_hue.indexOf(color) } color={ color } selected = {color === selectedColor} setSelectedColor = {setSelectedColor} />
                         
                     ))}
                 </div>

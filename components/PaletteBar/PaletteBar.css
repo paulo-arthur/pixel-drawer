@@ -1,13 +1,14 @@
 .external-container {
-    max-width: fit-content;
+    max-width: 20%;
+    height: 80%;
     border: 1px #555555 solid;
     border-radius: 10px;
 
-    padding: 0rem 1rem;
+    padding: 0rem 0.4rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 
     flex: 1;

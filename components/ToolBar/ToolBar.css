@@ -1,8 +1,10 @@
 .tool-container {
-    width: 70vw;
+    width: 10%;
+    height: 80%;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
-    
-    padding: 0.5rem 0;
+    align-items: center;
+
 }

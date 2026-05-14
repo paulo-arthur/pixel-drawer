@@ -1,7 +1,11 @@
 import "./ColorBtn.css";
 
-export default function ColorBtn({ style, selectedColor, setSelectedColor }) {
+export default function ColorBtn({ color, selected, setSelectedColor }) {
     return (
-        <button style = { style } onClick={() => setSelectedColor(style.backgroundColor)}></button>
+        <button 
+            style = { { backgroundColor: color } }
+            onClick={() => setSelectedColor(color) }
+            className={`${selected ? "selected-button" : ""}`}
+        ></button>
     );
 }

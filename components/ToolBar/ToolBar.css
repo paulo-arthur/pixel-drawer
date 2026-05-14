@@ -1,0 +1,8 @@
+.tool-container {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    padding: 0.5rem 0;
+}

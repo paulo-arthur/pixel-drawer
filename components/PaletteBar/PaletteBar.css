@@ -1,0 +1,14 @@
+.external-container {
+    max-width: fit-content;
+    border: 1px #555555 solid;
+    border-radius: 10px;
+
+    padding: 0rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    flex: 1;
+}

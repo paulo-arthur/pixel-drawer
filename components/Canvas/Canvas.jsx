@@ -1,13 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-
-import createGrid from "../../utils/createGrid";
-
 import "./Canvas.css";
 
 export default function Canvas({selectedColor}) {
-    const ROWS = 25;
-    const COLS = 25;
-    const [grid, setGrid] = useState( createGrid(ROWS, COLS) ); 
+    const ROWS = 16;
+    const COLS = 16;
     const [isDrawing, setIsDrawing] = useState(false);
 
     const canvasRef = useRef(null);
@@ -15,9 +11,8 @@ export default function Canvas({selectedColor}) {
 
         const canvas = canvasRef.current;
 
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-
+        canvas.width = COLS * Math.floor( canvas.offsetWidth / COLS );
+        canvas.height = ROWS * Math.floor( canvas.offsetHeight / ROWS );
     }, []);
 
     function handlePaint(row, col) {
@@ -26,8 +21,8 @@ export default function Canvas({selectedColor}) {
         }
     }
 
-    function drawPixel(e) {
-        const canvas = e.target; 
+    function drawPixel(e, selectedColor, {ROWS, COLS}) {
+        const canvas = e.target;
         const rect = canvas.getBoundingClientRect();
 
         var ctx = canvas.getContext("2d");
@@ -35,16 +30,26 @@ export default function Canvas({selectedColor}) {
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
 
-        ctx.fillRect((e.clientX - rect.left) * scaleX - 5, (e.clientY - rect.top) * scaleY - 5, 10, 10);
+        ctx.fillStyle = selectedColor;
+        ctx.fillRect(
+            canvas.width / COLS * Math.floor( (e.clientX - rect.left) * scaleX / (canvas.width / COLS) ), 
+            canvas.height / ROWS * Math.floor( (e.clientY - rect.top)  * scaleY / (canvas.height / ROWS) ), 
+            canvas.width / ROWS,
+            canvas.height / COLS);
     }
 
     return (
         <canvas 
             className="canvas"
-            onClick={ drawPixel }
+            onClick={ (e) => drawPixel (e, selectedColor, {ROWS, COLS}) }
             onMouseLeave={ () => setIsDrawing(false) } 
-            onMouseDown={ () => setIsDrawing(true) } 
+            onMouseDown={ () => setIsDrawing(true) }
             onMouseUp={ () => setIsDrawing(false) }
+            onMouseMove={ (e) => {
+                if (isDrawing) {
+                    drawPixel(e, selectedColor, {ROWS, COLS});
+                }
+            } }
             ref={canvasRef}>
         </canvas>
     );

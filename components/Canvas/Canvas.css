@@ -1,10 +1,5 @@
 .canvas {
-    display: grid;
-    background-color: aliceblue;
-
-    grid-template-columns:
-        repeat(25, 1fr);
-
+    background-color: rgb(32, 32, 32);
     width: min(70vw, 70vh);
 
     aspect-ratio: 1;

@@ -3,7 +3,8 @@ import { memo } from "react";
 function Pixel({
     color,
     onMouseDown,
-    onMouseEnter
+    onMouseEnter,
+    onClick
 }) {
 
     return (
@@ -15,7 +16,7 @@ function Pixel({
             }}
 
             onMouseDown={onMouseDown}
-
+            onClick = {onClick}
             onMouseEnter={onMouseEnter}
         />
     );

@@ -25,7 +25,7 @@ export default function Canvas({selectedColor}) {
 }
 
     return (
-        <div className="canvas" onMouseDown={ () => setIsDrawing(true) } onMouseUp={ () => setIsDrawing(false) }>
+        <div className="canvas" onMouseLeave={ () => setIsDrawing(false) } onMouseDown={ () => setIsDrawing(true) } onMouseUp={ () => setIsDrawing(false) }>
             {
                 grid.map( (row, rowIndex) => (
                     row.map((pixelColor, pixelIndex) => (
@@ -34,6 +34,9 @@ export default function Canvas({selectedColor}) {
                             color = { pixelColor }
                             onMouseEnter = { 
                                 () => (handlePaint(rowIndex, pixelIndex))
+                            }
+                            onClick = {
+                                () => (updatePixel(rowIndex, pixelIndex))
                             }
                             ROWS = { ROWS }
                             COLS = { COLS }

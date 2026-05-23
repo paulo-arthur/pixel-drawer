@@ -34,7 +34,7 @@ The project was created mainly to practice:
 
 <img width="220" height="220" alt="drawing (2)" src="https://github.com/user-attachments/assets/94dd3b88-98bc-405e-80ee-d8ea83130745" />
 
-<img width="220" height="440" alt="drawing" src="https://github.com/user-attachments/assets/4eb00c51-4e8b-4865-b0fc-cacfc30a4423" />
+<img width="220" height="220" alt="drawing" src="https://github.com/user-attachments/assets/4eb00c51-4e8b-4865-b0fc-cacfc30a4423" />
 
 ## Running locally
 
